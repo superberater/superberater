@@ -20,12 +20,12 @@ export default function StepTopic(props: StepTopicProps) {
       {/* Context */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-1">{t("wiz.topic.context", locale)}</label>
-        <textarea value={state.context} onChange={(e) => setState((prev) => ({ ...prev, context: e.target.value }))} placeholder={t("wiz.topic.context_placeholder", locale)} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-transparent outline-none h-40 resize-none" maxLength={5000} />
-        <p className="text-xs text-gray-400 mt-1">{state.context.length}/5000</p>
+        <textarea value={state.context} onChange={(e) => setState((prev) => ({ ...prev, context: e.target.value }))} placeholder={t("wiz.topic.context_placeholder", locale)} className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-light focus:border-transparent outline-none h-64 resize-y" maxLength={10000} />
+        <p className="text-xs text-gray-400 mt-1">{state.context.length}/10000</p>
       </div>
 
-      {/* File Upload */}
-      <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-brand-light transition-colors">
+      {/* File Upload — temporarily hidden, will be implemented later */}
+      {/* <div className="border-2 border-dashed border-gray-300 rounded-xl p-6 text-center hover:border-brand-light transition-colors">
         <input ref={fileRef} type="file" onChange={handleFileUpload} accept=".pdf,.docx,.txt,.md,.xlsx,.xls,.pptx,.csv" className="hidden" id="file-upload" />
         <label htmlFor="file-upload" className="cursor-pointer">
           {uploading ? (
@@ -35,7 +35,7 @@ export default function StepTopic(props: StepTopicProps) {
           )}
         </label>
         {uploadedFile && <div className="mt-3 inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded-lg text-sm text-green-700">{"\u2713"} {uploadedFile}</div>}
-      </div>
+      </div> */}
 
       {/* Language */}
       <div>
