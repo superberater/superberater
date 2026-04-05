@@ -1,0 +1,46 @@
+version: "3.9"
+
+# ══════════════════════════════════════════════════════════════
+# superberater — Docker Compose
+#
+# Default:  docker compose up --build
+# Requires: backend/.env with Supabase + OpenRouter credentials
+# ══════════════════════════════════════════════════════════════
+
+services:
+
+  # ── Backend (FastAPI, Port 9000) ──
+  backend:
+    build: ./backend
+    ports:
+      - "9000:9000"
+    env_file:
+      - ./backend/.env
+    environment:
+      - BACKEND_URL=http://0.0.0.0:9000
+    restart: unless-stopped
+
+  # ── Frontend (Next.js, Port 3000) ──
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:9000
+      - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL:-}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY:-}
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  # ── Nginx Reverse Proxy (optional, for production) ──
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped

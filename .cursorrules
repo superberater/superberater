@@ -1,0 +1,36 @@
+# CrewAI – AI/IDE Context Rules
+# Lies diese Datei zuerst wenn du an diesem Projekt arbeitest.
+
+## Projekt
+CrewAI ist eine Multi-Agent Decision Engine. KI-Agenten debattieren ein Thema live im Browser.
+
+## Stack
+- Backend: Python 3.13, FastAPI, httpx, Pydantic
+- Frontend: Next.js 14 (App Router), TypeScript, Tailwind CSS
+- LLM: OpenRouter API (NICHT Anthropic/OpenAI SDK direkt)
+- DB + Auth: Supabase Cloud oder lokales PostgreSQL
+- Streaming: SSE (Server-Sent Events), KEIN WebSocket
+
+## Wichtige Regeln
+1. Alle LLM-Calls gehen ueber OpenRouter (httpx.AsyncClient, KEIN SDK)
+2. Backend nutzt service_role Key, Frontend nutzt anon Key
+3. SSE pro Agent zum Browser, kein WebSocket
+4. Pydantic fuer alle API-Schemas (schemas.py)
+5. Kein ORM → Supabase Python Client direkt (models.py)
+6. asyncio.gather() fuer parallele Agent-Calls
+7. Model-Fallback: Bei Fehler automatisch alternatives Modell
+8. Backend Port: 9000, Frontend Port: 3000
+
+## Verzeichnis-Struktur
+- backend/  → FastAPI Python Backend
+- frontend/ → Next.js React Frontend
+- docs/     → Projektdokumentation (nicht im Git)
+
+## Dokumentation
+Weitere Details in docs/:
+- RULES.md → Projektregeln & Konventionen
+- PROJECT.md → Uebersicht & Architektur
+- SUPABASE.md → Supabase Cloud Setup
+- OPENROUTER.md → OpenRouter Integration
+- SETUP.md → Setup-Anleitung
+- ISSUES.md → Bekannte Issues & TODOs
