@@ -138,7 +138,7 @@ function ModeratorBlock({ agent, roundFilter, locale }: { agent: AgentStreamStat
             <div className="text-sm text-gray-700 whitespace-pre-wrap leading-relaxed">{round.text}</div>
           </div>
         ))}
-        {showThinking && <ThinkingDots />}
+        {showThinking && <ThinkingDots locale={locale} />}
         {showStreaming && (
           <div>
             <div className="text-xs font-medium text-amber-600 mb-1">{getRoundLabel(agent.currentRound, locale)}</div>
