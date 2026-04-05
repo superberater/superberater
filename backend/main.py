@@ -45,6 +45,8 @@ app.add_middleware(
         _settings.frontend_url,
         "http://localhost:3000",
         "http://localhost:3001",
+        f"http://{_settings.frontend_url.split('//')[1].split(':')[0]}:3000" if '://' in _settings.frontend_url else "",
+        "*",
     ],
     allow_credentials=True,
     allow_methods=["*"],
