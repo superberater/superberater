@@ -27,7 +27,7 @@ start_backend() {
     [[ -f "$BACKEND_DIR/.env" ]] || { echo -e "${RED}No .env found. Run ./install.sh first.${NC}"; exit 1; }
     cd "$BACKEND_DIR"
     source .venv/bin/activate
-    python -m uvicorn main:app --reload --port 9000 &
+    python -m uvicorn main:app --reload --host 0.0.0.0 --port 9000 &
     BACKEND_PID=$!
     echo "$BACKEND_PID" > "$PID_DIR/backend.pid"
     deactivate 2>/dev/null || true

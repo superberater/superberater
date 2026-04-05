@@ -34,6 +34,7 @@ export interface CreateDebateRequest {
   agents: AgentConfig[]; num_rounds?: number; style?: string;
   parallel_mode?: string; decision_mode?: string;
   moderator_model?: string; moderator_system_prompt?: string; active_moderator?: boolean;
+  summary_length?: string;
 }
 export interface Personality { id: string; name: string; icon: string; description: string; system_prompt: string; default_model: string; default_temperature: number; is_public: boolean; }
 export interface AgentInfo { id: string; name: string; icon: string; model: string; }
