@@ -27,7 +27,7 @@ async function fetchAPI(path: string, options: RequestInit = {}) {
   return res.json();
 }
 
-export interface ModelOption { value: string; label: string; cost: string; context_length?: number; }
+export interface ModelOption { value: string; label: string; cost: string; tier?: string; context_length?: number; }
 export interface AgentConfig { personality_id?: string; name?: string; icon?: string; system_prompt?: string; model: string; temperature: number; max_tokens: number; sort_order: number; }
 export interface CreateDebateRequest {
   topic: string; context?: string; language?: string;
