@@ -7,6 +7,7 @@ const commonKeys: Record<string, Record<Locale, string>> = {
   "nav.settings": { en: "Settings", de: "Einstellungen" },
   "nav.sign_in": { en: "Sign In", de: "Anmelden" },
   "nav.sign_out": { en: "Sign Out", de: "Abmelden" },
+  "nav.github": { en: "GitHub", de: "GitHub" },
   // Dashboard
   "dash.title": { en: "Dashboard", de: "Dashboard" },
   "dash.my_runs": { en: "My superRuns", de: "Meine superRuns" },

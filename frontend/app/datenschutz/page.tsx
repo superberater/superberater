@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "@/hooks/useLocale";
+import { GITHUB_REPO_URL } from "@/lib/links";
 
 export default function DatenschutzPage() {
   const { locale } = useLocale();
@@ -24,9 +25,23 @@ export default function DatenschutzPage() {
         <section>
           <h2 className="text-base font-semibold text-gray-900 mb-2">{de ? "2. Was ist superberater?" : "2. What is superberater?"}</h2>
           <p className="leading-relaxed">
-            {de
-              ? "superberater ist ein Open-Source-Projekt (MIT-Lizenz), bei dem mehrere KI-Agenten ein Thema debattieren. Diese Webseite ist eine technische Live-Demo — kein kommerzielles Produkt. Es gibt keinen kostenpflichtigen Dienst und keine Kundenbeziehung. Der vollständige Quellcode ist auf GitHub einsehbar."
-              : "superberater is an open-source project (MIT License) where multiple AI agents debate a topic. This website is a technical live demo — not a commercial product. There is no paid service and no customer relationship. The complete source code is available on GitHub."}
+            {de ? (
+              <>
+                superberater ist ein Open-Source-Projekt (MIT-Lizenz), bei dem mehrere KI-Agenten ein Thema debattieren. Diese Webseite ist eine technische Live-Demo — kein kommerzielles Produkt. Es gibt keinen kostenpflichtigen Dienst und keine Kundenbeziehung. Der vollständige Quellcode ist auf{" "}
+                <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                  GitHub
+                </a>{" "}
+                (<span className="whitespace-nowrap">superberater/superberater</span>) einsehbar.
+              </>
+            ) : (
+              <>
+                superberater is an open-source project (MIT License) where multiple AI agents debate a topic. This website is a technical live demo — not a commercial product. There is no paid service and no customer relationship. The complete source code is available on{" "}
+                <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                  GitHub
+                </a>{" "}
+                (<span className="whitespace-nowrap">superberater/superberater</span>).
+              </>
+            )}
           </p>
         </section>
 
@@ -111,9 +126,23 @@ export default function DatenschutzPage() {
         <section>
           <h2 className="text-base font-semibold text-gray-900 mb-2">{de ? "7. Self-Hosting" : "7. Self-Hosting"}</h2>
           <p className="text-gray-600 leading-relaxed">
-            {de
-              ? "superberater ist Open Source (MIT-Lizenz). Sie können die Software selbst hosten und haben damit volle Kontrolle über alle Daten. Keine Daten fließen dann an diese Demo-Instanz."
-              : "superberater is open source (MIT License). You can self-host the software and have full control over all data. No data flows to this demo instance in that case."}
+            {de ? (
+              <>
+                superberater ist Open Source (MIT-Lizenz). Sie können die Software selbst hosten (siehe{" "}
+                <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                  Repository
+                </a>
+                ) und haben damit volle Kontrolle über alle Daten. Keine Daten fließen dann an diese Demo-Instanz.
+              </>
+            ) : (
+              <>
+                superberater is open source (MIT License). You can self-host the software (see the{" "}
+                <a href={GITHUB_REPO_URL} target="_blank" rel="noopener noreferrer" className="text-brand hover:underline">
+                  repository
+                </a>
+                ) and have full control over all data. No data flows to this demo instance in that case.
+              </>
+            )}
           </p>
         </section>
       </div>

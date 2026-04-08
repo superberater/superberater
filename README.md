@@ -79,8 +79,8 @@ All models accessed through [OpenRouter](https://openrouter.ai) — one API key,
 ### Install
 
 ```bash
-git clone https://github.com/supbrt/crewai.git
-cd crewai
+git clone https://github.com/superberater/superberater.git
+cd superberater
 chmod +x install.sh start.sh
 ./install.sh
 ```
@@ -233,7 +233,7 @@ npm run dev
 ## Project Structure
 
 ```
-crewai/
+superberater/
 ├── install.sh                 ← Interactive setup
 ├── start.sh                   ← Start/stop/restart
 ├── docker-compose.yml         ← Docker deployment
