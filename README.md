@@ -14,6 +14,11 @@ superberater is an open-source web app where multiple AI agents (Skeptic, CFO, E
 
 ---
 
+## DEMO
+
+https://superberater.ai
+
+
 ## How It Works
 
 1. **Define your topic** — Describe the decision or question. Add context, upload documents (PDF, DOCX, XLSX, etc.)
